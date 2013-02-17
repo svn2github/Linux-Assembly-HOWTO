@@ -1,97 +1,24 @@
-<HTML
-><HEAD
-><TITLE
->MIPS Example</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Linux Assembly HOWTO"
-HREF="Assembly-HOWTO.html"><LINK
-REL="UP"
-TITLE="Quick start"
-HREF="quickstart.html"><LINK
-REL="PREVIOUS"
-TITLE="Building an executable"
-HREF="build.html"><LINK
-REL="NEXT"
-TITLE="Resources"
-HREF="resources.html"></HEAD
-><BODY
-CLASS="SECTION"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Linux Assembly HOWTO</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="build.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->Chapter 6. Quick start</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="resources.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="SECTION"
-><H1
-CLASS="SECTION"
-><A
-NAME="AEN892"
-></A
->6.4. MIPS Example</H1
-><P
->As a demonstration of a fact that there's a universe other than x86,
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>MIPS Example</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="quickstart.html" title="Chapter 6. Quick start"><link rel="prev" href="build.html" title="Building an executable"><link rel="next" href="resources.html" title="Chapter 7. Resources"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">MIPS Example</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="build.html">Prev</a> </td><th width="60%" align="center">Chapter 6. Quick start</th><td width="20%" align="right"> <a accesskey="n" href="resources.html">Next</a></td></tr></table><hr></div><div class="section" title="MIPS Example"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp479632"></a>MIPS Example</h2></div></div></div>
+
+
+
+<p>
+As a demonstration of a fact that there's a universe other than x86,
 here comes an example program for MIPS by Spencer Parkin.
 BTW, if you've got here, you may also want to see
-<A
-HREF="http://www.cuillin.demon.co.uk/nazz/trivia/hw/hw_assembler.html"
-TARGET="_top"
->A Collection of Assembler Hello World Programs</A
->.&#13;</P
-><P
-><PRE
-CLASS="PROGRAMLISTING"
-># hello.S	by Spencer T. Parkin
+<a class="ulink" href="http://www.cuillin.demon.co.uk/nazz/trivia/hw/hw_assembler.html" target="_top">
+A Collection of Assembler Hello World Programs
+</a>.
+</p>
+
+<p>
+</p><pre class="programlisting">
+
+# hello.S	by Spencer T. Parkin
 
 # This is my first MIPS-RISC assembly program!
 # To compile this program type:
-# &#62; gcc -o hello hello.S -non_shared
+# &gt; gcc -o hello hello.S -non_shared
 
 # This program compiles without errors or warnings
 # on a PlayStation2 MIPS R5900 (EE Core).
@@ -102,8 +29,8 @@ CLASS="PROGRAMLISTING"
 # If we were, we would need to follow the PIC-
 # ABI calling conventions and other protocols.
 
-#include &#60;asm/regdef.h&#62;		// ...for human readable register names
-#include &#60;asm/unistd.h&#62;		// ...for system serivices			
+#include &lt;asm/regdef.h&gt;		// ...for human readable register names
+#include &lt;asm/unistd.h&gt;		// ...for system serivices			
 
 		.rdata					# begin read-only data segment
 		.align		2			# because of the way memory is built
@@ -126,71 +53,8 @@ main:		# We must specify -non_shared to gcc or we`ll need these 3 lines that fal
 		j		ra			# return to caller
 		.end		main			# for dgb debugging info.
 
-# That`s all folks!</PRE
-></P
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="build.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="Assembly-HOWTO.html"
-ACCESSKEY="H"
->Home</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="resources.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->Building an executable</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="quickstart.html"
-ACCESSKEY="U"
->Up</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->Resources</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+# That`s all folks!
+
+</pre><p>
+</p>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="build.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="quickstart.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="resources.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Building an executable </td><td width="20%" align="center"><a accesskey="h" href="Assembly-HOWTO.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 7. Resources</td></tr></table></div></body></html>

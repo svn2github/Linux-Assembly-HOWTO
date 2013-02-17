@@ -1,257 +1,76 @@
-<HTML
-><HEAD
-><TITLE
->NASM</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Linux Assembly HOWTO"
-HREF="Assembly-HOWTO.html"><LINK
-REL="UP"
-TITLE="Assemblers"
-HREF="assemblers.html"><LINK
-REL="PREVIOUS"
-TITLE="GAS"
-HREF="gas.html"><LINK
-REL="NEXT"
-TITLE="Other Assemblers"
-HREF="other.html"></HEAD
-><BODY
-CLASS="SECTION"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Linux Assembly HOWTO</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="gas.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->Chapter 3. Assemblers</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="other.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="SECTION"
-><H1
-CLASS="SECTION"
-><A
-NAME="P-NASM"
-></A
->3.3. NASM</H1
-><P
->The Netwide Assembler project provides cool i386 assembler,
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>NASM</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="assemblers.html" title="Chapter 3. Assemblers"><link rel="prev" href="gas.html" title="GAS"><link rel="next" href="other.html" title="Other Assemblers"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">NASM</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="gas.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Assemblers</th><td width="20%" align="right"> <a accesskey="n" href="other.html">Next</a></td></tr></table><hr></div><div class="section" title="NASM"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="p-nasm"></a>NASM</h2></div></div></div>
+
+
+
+<p>
+The Netwide Assembler project provides cool i386 assembler,
 written in C, that should be modular enough
-to eventually support all known syntaxes and object formats.</P
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="P-NASM-WHERE"
-></A
->3.3.1. Where to find NASM</H2
-><P
-><A
-HREF="http://nasm.sourceforge.net"
-TARGET="_top"
->http://nasm.sourceforge.net</A
->, 
-<A
-HREF="http://sourceforge.net/projects/nasm/"
-TARGET="_top"
->http://sourceforge.net/projects/nasm/</A
->&#13;</P
-><P
->Binary release on your usual metalab mirror
-in <TT
-CLASS="FILENAME"
->devel/lang/asm/</TT
-> directory.
-Should also be available as <TT
-CLASS="FILENAME"
->.rpm</TT
-> or
-<TT
-CLASS="FILENAME"
->.deb</TT
-> in your usual Linux distribution.</P
-></DIV
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="AEN436"
-></A
->3.3.2. What it does</H2
-><P
->The syntax is Intel-style.
-Comprehensive macroprocessing support is integrated.</P
-><P
->Supported object file formats are
-<TT
-CLASS="LITERAL"
->bin</TT
->,
-<TT
-CLASS="LITERAL"
->aout</TT
->,
-<TT
-CLASS="LITERAL"
->coff</TT
->,
-<TT
-CLASS="LITERAL"
->elf</TT
->,
-<TT
-CLASS="LITERAL"
->as86</TT
->,
-<TT
-CLASS="LITERAL"
->obj</TT
-> (DOS),
-<TT
-CLASS="LITERAL"
->win32</TT
->,
-<TT
-CLASS="LITERAL"
->rdf</TT
-> (their own format).</P
-><P
->NASM can be used as a backend for the free LCC compiler
-(support files included).</P
-><P
->Unless you're using BCC as a 16-bit compiler
+to eventually support all known syntaxes and object formats.
+</p>
+
+<div class="section" title="Where to find NASM"><div class="titlepage"><div><div><h3 class="title"><a name="p-nasm-where"></a>Where to find NASM</h3></div></div></div>
+
+<p>
+<a class="ulink" href="http://nasm.sourceforge.net" target="_top">http://nasm.sourceforge.net</a>, 
+<a class="ulink" href="http://sourceforge.net/projects/nasm/" target="_top">http://sourceforge.net/projects/nasm/</a>
+</p>
+
+<p>
+Binary release on your usual metalab mirror
+in <code class="filename">devel/lang/asm/</code> directory.
+Should also be available as <code class="filename">.rpm</code> or
+<code class="filename">.deb</code> in your usual Linux distribution.
+</p>
+</div>
+
+<div class="section" title="What it does"><div class="titlepage"><div><div><h3 class="title"><a name="idp235568"></a>What it does</h3></div></div></div>
+
+<p>
+The syntax is Intel-style.
+Comprehensive macroprocessing support is integrated.
+</p>
+
+<p>
+Supported object file formats are
+<code class="literal">bin</code>,
+<code class="literal">aout</code>,
+<code class="literal">coff</code>,
+<code class="literal">elf</code>,
+<code class="literal">as86</code>,
+<code class="literal">obj</code> (DOS),
+<code class="literal">win32</code>,
+<code class="literal">rdf</code> (their own format).
+</p>
+
+<p>
+NASM can be used as a backend for the free LCC compiler
+(support files included).
+</p>
+
+<p>
+Unless you're using BCC as a 16-bit compiler
 (which is out of scope of this 32-bit HOWTO),
 you should definitely use NASM instead of say AS86 or MASM,
-because it runs on all platforms.</P
-><DIV
-CLASS="NOTE"
-><BLOCKQUOTE
-CLASS="NOTE"
-><P
-><B
->Note: </B
->NASM comes with a disassembler, NDISASM.</P
-></BLOCKQUOTE
-></DIV
-><P
->Its hand-written parser makes it much faster than GAS,
+because it runs on all platforms.
+</p>
+
+<div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+<p>
+NASM comes with a disassembler, NDISASM.
+</p>
+</div>
+
+<p>
+Its hand-written parser makes it much faster than GAS,
 though of course, it doesn't support three bazillion different architectures.
 If you like Intel-style syntax, as opposed to GAS syntax,
-then it should be the assembler of choice...</P
-><P
->Note: There are <A
-HREF="resources.html"
->few programs</A
->
-which may help you to convert source code between AT&#38;T and Intel assembler syntaxes;
-some of the are capable of performing conversion in both directions.</P
-></DIV
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="gas.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="Assembly-HOWTO.html"
-ACCESSKEY="H"
->Home</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="other.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->GAS</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="assemblers.html"
-ACCESSKEY="U"
->Up</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->Other Assemblers</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+then it should be the assembler of choice...
+</p>
+
+<p>
+Note: There are <a class="link" href="resources.html" title="Chapter 7. Resources">few programs</a>
+which may help you to convert source code between AT&amp;T and Intel assembler syntaxes;
+some of the are capable of performing conversion in both directions.
+</p>
+</div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="gas.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="assemblers.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="other.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">GAS </td><td width="20%" align="center"><a accesskey="h" href="Assembly-HOWTO.html">Home</a></td><td width="40%" align="right" valign="top"> Other Assemblers</td></tr></table></div></body></html>

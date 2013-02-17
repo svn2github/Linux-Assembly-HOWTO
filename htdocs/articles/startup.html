@@ -12,7 +12,7 @@ All information provided here has derived from my own research.
 So, mistakes and deficiencies could exist.<br>
 If you find any -- please <a href=#co>contact me</a>.</small></i></p>
 
-<hr><a name=#cs></a><h2><u>Contents</u></h2><ul><font size=+1>
+<hr><a name=cs></a><h2><u>Contents</u></h2><ul><font size=+1>
 <a href=#in>1. Introduction</a><br>
 <a href=#ov>2. Overview</a><br>
 <a href=#st>3. Stack layout</a><br>
@@ -25,7 +25,7 @@ If you find any -- please <a href=#co>contact me</a>.</small></i></p>
 <a href=#co>6. Summary</a><br>
 <a href=#co>7. Contact</a></font></ul><hr>
 
-<a name=#in></a><h2><u>1. Introduction</u></h2>
+<a name=in></a><h2><u>1. Introduction</u></h2>
 <p align=justify>
 The objective of this document is to describe several startup process details
 and the initial state of the stack & registers of an ELF binary program,
@@ -44,11 +44,11 @@ is passed to main() function.
 is Linux Kernel's <b>fs/binfmt_elf.c</b> file.<br>
 If you want all details of the startup process -- go read it.
 <p>All assembly code examples use nasm syntax.
-<a name=#program></a>
+<a name=program></a>
 <p>You can download program suite that was used while writing this document
-at the <a href=http://linuxassembly.org>Linux Assembly</a> (<a href=startup.tgz>binaries</a>, <a href=../asmutils.html>source</a>).</p>
+at the <a href=http://asm.sourceforge.net>Linux Assembly</a> (<a href=startup.tgz>binaries</a>, <a href=../asmutils.html>source</a>).</p>
 
-<a name=#ov></a><h2><u>2. Overview</u></h2>
+<a name=ov></a><h2><u>2. Overview</u></h2>
 <p align=justify>
 Every program is executed by means of sys_execve() system call;
 usually one just types program name at the shell prompt.
@@ -98,11 +98,11 @@ Stack is growing to meet .bss;
 also you can use memory beyond .bss section for dynamic data allocation.
 
 <p align=justify><i>Note: this information was gathered from
-<b>fs/binfmt_elf.c</b>, <b>include/linux/sched.h</b> (task_struct.addr_limit),
+<b>fs/binfmt_elf.c</b>, <b>include/linux/sched.h</b> (task_struct.addr_limit)<!-- ,
 and core dumps investigated with ultimate binary viewer
-<a href=http://biew.sourceforge.net>biew</a>).</i></p>
+<a href=http://biew.sourceforge.net>biew</a>) -->.</i></p>
 
-<a name=#st></a><h2><u>3. Stack layout</u></h2>
+<a name=st></a><h2><u>3. Stack layout</u></h2>
 
 <p>Initial stack layout is very important, because it provides access
 to command line and environment of a program.
@@ -171,13 +171,13 @@ However it can be more suitable in some cases.
 Program name also can be fetched by downstepping from 0xBFFFFFFB (0xBFFFFFF-4)
 address (<font color=#004080><i>Figure 2</i></font>).</p>
 
-<a name=#re></a><h2><u>4. Registers</u></h2>
+<a name=re></a><h2><u>4. Registers</u></h2>
 <p align=justify>
 Or better to say, general registers.
 Here things go different for Linux 2.0 and Linux 2.2.
 First I'll describe Linux Kernel 2.0.
 
-<a name=#re0></a><h3 align=center>4.1 Linux Kernel 2.0</h3>
+<a name=re0></a><h3 align=center>4.1 Linux Kernel 2.0</h3>
 <p align=justify>
 Theoretically, all registers except EDX are undefined on program startup
 when using Linux 2.0. EDX is zeroed by ELF_PLAT_INIT in <b>fs/binfmt_elf.c</b>
@@ -232,7 +232,7 @@ given program and shows registers before sys_execve() call.
 You can easily combine them - try running
 <p>$ <i>./execve ./regs</i>
 <p>on Linux 2.0 and you will get the picture of what I'm talking about.</p>
-<a name=#re2></a><h3 align=center>Linux Kernel 2.2</h3>
+<a name=re2></a><h3 align=center>Linux Kernel 2.2</h3>
 
 <p align=justify>
 On Linux 2.2 things are much simpler and less interesting --
@@ -304,7 +304,7 @@ just check whether EBX or ECX are zeroes on startup:</p>
 <p>Also, you probably noticed from <i>regs</i> output that FS and GS are not
 used in Linux 2.2; and they are no longer present in pt_regs structure..</p>
 
-<a name=#ot></a><h2><u>5. Other info</u></h2>
+<a name=ot></a><h2><u>5. Other info</u></h2>
 
 <b>
 fs/binfmt_elf.c</b> also contains <i>padzero()</i> function that zeroes out
@@ -312,7 +312,7 @@ fs/binfmt_elf.c</b> also contains <i>padzero()</i> function that zeroes out
 will get value of 0. Once again, you can be sure that uninitialized data
 will not contain garbage. You can use this issue if you want to initialize any variable(s) with zero -- Linux will do it for you, just place them in .bss section.</p>
 
-<a name=#su></a><h2><u>6. Summary</u></h2>
+<a name=su></a><h2><u>6. Summary</u></h2>
 <p>Brief summary of things to know about ELF binary startup state:<p>
 <ul>
 <li>.bss section is zeroed out
@@ -320,7 +320,7 @@ will not contain garbage. You can use this issue if you want to initialize any v
 <li>on Linux 2.0 EAX and EDX are zeroed out, other contain values before sys_execve() call
 <li>stack contains argc,argv[0 -- (argc-1)] and envp[0 -- n], in that order
 </ul>
-<a name=#co></a><h2><u>7. Contact</u></h2>
+<a name=co></a><h2><u>7. Contact</u></h2>
 <p>Author: Konstantin Boldyshev &lt;<a href=mailto:konst@linuxassembly.org>konst@linuxassembly.org</a>&gt;</p>
 
 <center><hr><font size=-1 face="Tahoma, Helvetica">

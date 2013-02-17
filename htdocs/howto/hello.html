@@ -1,127 +1,35 @@
-<HTML
-><HEAD
-><TITLE
->Hello, world!</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Linux Assembly HOWTO"
-HREF="Assembly-HOWTO.html"><LINK
-REL="UP"
-TITLE="Quick start"
-HREF="quickstart.html"><LINK
-REL="PREVIOUS"
-TITLE="Quick start"
-HREF="quickstart.html"><LINK
-REL="NEXT"
-TITLE="Building an executable"
-HREF="build.html"></HEAD
-><BODY
-CLASS="SECTION"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Linux Assembly HOWTO</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="quickstart.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->Chapter 6. Quick start</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="build.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="SECTION"
-><H1
-CLASS="SECTION"
-><A
-NAME="AEN850"
-></A
->6.2. Hello, world!</H1
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="AEN852"
-></A
->6.2.1. Program layout</H2
-><P
->Linux is 32-bit, runs in protected mode, has flat memory model,
-and uses the ELF format for binaries.</P
-><P
->A program can be divided into sections:
-<TT
-CLASS="LITERAL"
->.text</TT
-> for your code (read-only),
-<TT
-CLASS="LITERAL"
->.data</TT
-> for your data (read-write),
-<TT
-CLASS="LITERAL"
->.bss</TT
-> for uninitialized data (read-write);
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Hello, world!</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="quickstart.html" title="Chapter 6. Quick start"><link rel="prev" href="quickstart.html" title="Chapter 6. Quick start"><link rel="next" href="build.html" title="Building an executable"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Hello, world!</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="quickstart.html">Prev</a> </td><th width="60%" align="center">Chapter 6. Quick start</th><td width="20%" align="right"> <a accesskey="n" href="build.html">Next</a></td></tr></table><hr></div><div class="section" title="Hello, world!"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp456768"></a>Hello, world!</h2></div></div></div>
+
+
+
+<div class="section" title="Program layout"><div class="titlepage"><div><div><h3 class="title"><a name="idp459952"></a>Program layout</h3></div></div></div>
+
+<p>
+Linux is 32-bit, runs in protected mode, has flat memory model,
+and uses the ELF format for binaries.
+</p>
+
+<p>
+A program can be divided into sections:
+<code class="literal">.text</code> for your code (read-only),
+<code class="literal">.data</code> for your data (read-write),
+<code class="literal">.bss</code> for uninitialized data (read-write);
 there can actually be a few other standard sections,
 as well as some user-defined sections,
 but there's rare need to use them and they are out of our interest here.
-A program must have at least <TT
-CLASS="LITERAL"
->.text</TT
-> section.</P
-><P
->Now we will write our first program. Here is sample code:</P
-></DIV
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="AEN861"
-></A
->6.2.2. NASM (hello.asm)</H2
-><P
-><PRE
-CLASS="PROGRAMLISTING"
->section .text				;section declaration
+A program must have at least <code class="literal">.text</code> section.
+</p>
+
+<p>
+Now we will write our first program. Here is sample code:
+</p>
+</div>
+
+<div class="section" title="NASM (hello.asm)"><div class="titlepage"><div><div><h3 class="title"><a name="idp464064"></a>NASM (hello.asm)</h3></div></div></div>
+
+<p>
+</p><pre class="programlisting">
+section .text				;section declaration
 
 			;we must export the entry point to the ELF linker or
     global _start	;loader. They conventionally recognize _start as their
@@ -146,21 +54,16 @@ _start:
 section .data				;section declaration
 
 msg     db      "Hello, world!",0xa	;our dear string
-len     equ     $ - msg                 ;length of our dear string&#13;</PRE
-></P
-></DIV
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="AEN865"
-></A
->6.2.3. GAS (hello.S)</H2
-><P
-><PRE
-CLASS="PROGRAMLISTING"
->.text					# section declaration
+len     equ     $ - msg                 ;length of our dear string
+</pre><p>
+</p>
+</div>
+
+<div class="section" title="GAS (hello.S)"><div class="titlepage"><div><div><h3 class="title"><a name="idp466816"></a>GAS (hello.S)</h3></div></div></div>
+
+<p>
+</p><pre class="programlisting">
+.text					# section declaration
 
 			# we must export the entry point to the ELF linker or
     .global _start	# loader. They conventionally recognize _start as their
@@ -186,72 +89,9 @@ _start:
 
 msg:
 	.ascii	"Hello, world!\n"	# our dear string
-	len = . - msg			# length of our dear string&#13;</PRE
-></P
-></DIV
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="quickstart.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="Assembly-HOWTO.html"
-ACCESSKEY="H"
->Home</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="build.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->Quick start</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="quickstart.html"
-ACCESSKEY="U"
->Up</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->Building an executable</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+	len = . - msg			# length of our dear string
+
+</pre><p>
+</p>
+</div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="quickstart.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="quickstart.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="build.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 6. Quick start </td><td width="20%" align="center"><a accesskey="h" href="Assembly-HOWTO.html">Home</a></td><td width="40%" align="right" valign="top"> Building an executable</td></tr></table></div></body></html>

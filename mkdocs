@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd ./htdocs/howto
+xmlto --with-dblatex pdf Assembly-HOWTO.xml
+xmlto epub Assembly-HOWTO.xml
+xmlto html Assembly-HOWTO.xml
+rm Assembly-HOWTO.proc
+tar czf Assembly-HOWTO.tar.gz *.html
+
+cd ../intro
+xmlto --with-dblatex pdf Assembly-Intro.xml
+xmlto epub Assembly-Intro.xml
+xmlto html Assembly-Intro.xml
+rm Assembly-Intro.proc
+tar czf Assembly-Intro.tar.gz *.html
+
+cd ../..
+

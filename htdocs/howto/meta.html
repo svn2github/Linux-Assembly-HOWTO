@@ -1,251 +1,97 @@
-<HTML
-><HEAD
-><TITLE
->Metaprogramming</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Linux Assembly HOWTO"
-HREF="Assembly-HOWTO.html"><LINK
-REL="UP"
-TITLE="Metaprogramming"
-HREF="metaprogramming.html"><LINK
-REL="PREVIOUS"
-TITLE="Metaprogramming"
-HREF="metaprogramming.html"><LINK
-REL="NEXT"
-TITLE="Calling conventions"
-HREF="conventions.html"></HEAD
-><BODY
-CLASS="SECTION"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Linux Assembly HOWTO</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="metaprogramming.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->Chapter 4. Metaprogramming</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="conventions.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="SECTION"
-><H1
-CLASS="SECTION"
-><A
-NAME="AEN588"
-></A
->4.2. Metaprogramming</H1
-><P
->Instead of using an external filter that expands macros,
-one way to do things is to write programs that write part
-or all of other programs.</P
-><P
->For instance, you could use a program outputting source code
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Metaprogramming</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="metaprogramming.html" title="Chapter 4. Metaprogramming"><link rel="prev" href="metaprogramming.html" title="Chapter 4. Metaprogramming"><link rel="next" href="conventions.html" title="Chapter 5. Calling conventions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Metaprogramming</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="metaprogramming.html">Prev</a> </td><th width="60%" align="center">Chapter 4. Metaprogramming</th><td width="20%" align="right"> <a accesskey="n" href="conventions.html">Next</a></td></tr></table><hr></div><div class="section" title="Metaprogramming"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp320736"></a>Metaprogramming</h2></div></div></div>
 
-<P
-></P
-><UL
-><LI
-><P
->to generate sine/cosine/whatever lookup tables,</P
-></LI
-><LI
-><P
->to extract a source-form representation of a binary file,</P
-></LI
-><LI
-><P
->to compile your bitmaps into fast display routines,</P
-></LI
-><LI
-><P
->to extract documentation, initialization/finalization code,
-description tables, as well as normal code from the same source files,</P
-></LI
-><LI
-><P
->to have customized assembly code, generated from a perl/shell/scheme script
-that does arbitrary processing,</P
-></LI
-><LI
-><P
->to propagate data defined at one point only
-into several cross-referencing tables and code chunks.</P
-></LI
-><LI
-><P
->etc.</P
-></LI
-></UL
->&#13;</P
-><P
->Think about it!</P
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="AEN608"
-></A
->4.2.1. Backends from compilers</H2
-><P
->Compilers like GCC, SML/NJ, Objective CAML, MIT-Scheme, CMUCL, etc,
+
+
+<p>
+Instead of using an external filter that expands macros,
+one way to do things is to write programs that write part
+or all of other programs.
+</p>
+
+<p>
+For instance, you could use a program outputting source code
+
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<p>
+to generate sine/cosine/whatever lookup tables,
+</p>
+</li><li class="listitem">
+<p>
+to extract a source-form representation of a binary file,
+</p>
+</li><li class="listitem">
+<p>
+to compile your bitmaps into fast display routines,
+</p>
+</li><li class="listitem">
+<p>
+to extract documentation, initialization/finalization code,
+description tables, as well as normal code from the same source files,
+</p>
+</li><li class="listitem">
+<p>
+to have customized assembly code, generated from a perl/shell/scheme script
+that does arbitrary processing,
+</p>
+</li><li class="listitem">
+<p>
+to propagate data defined at one point only
+into several cross-referencing tables and code chunks.
+</p>
+</li><li class="listitem">
+<p>
+etc.
+</p>
+</li></ul></div><p>
+</p>
+
+<p>
+Think about it!
+</p>
+
+<div class="section" title="Backends from compilers"><div class="titlepage"><div><div><h3 class="title"><a name="idp330656"></a>Backends from compilers</h3></div></div></div>
+
+<p>
+Compilers like GCC, SML/NJ, Objective CAML, MIT-Scheme, CMUCL, etc,
 do have their own generic assembler backend,
 which you might choose to use,
 if you intend to generate code semi-automatically
 from the according languages,
 or from a language you hack:
 rather than write great assembly code,
-you may instead modify a compiler so that it dumps great assembly code!</P
-></DIV
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="AEN611"
-></A
->4.2.2. The New-Jersey Machine-Code Toolkit</H2
-><P
->There is a project, using the programming language Icon
+you may instead modify a compiler so that it dumps great assembly code!
+</p>
+</div>
+
+<div class="section" title="The New-Jersey Machine-Code Toolkit"><div class="titlepage"><div><div><h3 class="title"><a name="idp332064"></a>The New-Jersey Machine-Code Toolkit</h3></div></div></div>
+
+<p>
+There is a project, using the programming language Icon
 (with an experimental ML version),
 to build a basis for producing assembly-manipulating code.
 See around
-<A
-HREF="http://www.eecs.harvard.edu/~nr/toolkit/"
-TARGET="_top"
->http://www.eecs.harvard.edu/~nr/toolkit/</A
-></P
-></DIV
-><DIV
-CLASS="SECTION"
-><H2
-CLASS="SECTION"
-><A
-NAME="AEN615"
-></A
->4.2.3. TUNES</H2
-><P
->The <A
-HREF="http://www.tunes.org"
-TARGET="_top"
->TUNES Project</A
->
+<a class="ulink" href="http://www.eecs.harvard.edu/~nr/toolkit/" target="_top">
+http://www.eecs.harvard.edu/~nr/toolkit/</a>
+</p>
+</div>
+
+<div class="section" title="TUNES"><div class="titlepage"><div><div><h3 class="title"><a name="idp334240"></a>TUNES</h3></div></div></div>
+
+<p>
+The <a class="ulink" href="http://www.tunes.org" target="_top">TUNES Project</a>
 for a Free Reflective Computing System
 is developing its own assembler
 as an extension to the Scheme language,
 as part of its development process.
-It doesn't run at all yet, though help is welcome.</P
-><P
->The assembler manipulates abstract syntax trees,
+It doesn't run at all yet, though help is welcome.
+</p>
+
+<p>
+The assembler manipulates abstract syntax trees,
 so it could equally serve as the basis for a assembly syntax translator,
 a disassembler, a common assembler/compiler back-end, etc.
 Also, the full power of a real language, Scheme,
-make it unchallenged as for macroprocessing/metaprogramming.</P
-></DIV
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="metaprogramming.html"
-ACCESSKEY="P"
->Prev</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="Assembly-HOWTO.html"
-ACCESSKEY="H"
->Home</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="conventions.html"
-ACCESSKEY="N"
->Next</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->Metaprogramming</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="metaprogramming.html"
-ACCESSKEY="U"
->Up</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->Calling conventions</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+make it unchallenged as for macroprocessing/metaprogramming.
+</p>
+</div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="metaprogramming.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="metaprogramming.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="conventions.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 4. Metaprogramming </td><td width="20%" align="center"><a accesskey="h" href="Assembly-HOWTO.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 5. Calling conventions</td></tr></table></div></body></html>
