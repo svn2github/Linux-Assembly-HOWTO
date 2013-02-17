@@ -1,0 +1,8 @@
+#!/bin/sh
+DIR=htdocs
+ARC=la
+
+cd $DIR
+rm -f $ARC.*
+tar cf $ARC.tar --exclude private *
+bzip2 -9 $ARC.tar

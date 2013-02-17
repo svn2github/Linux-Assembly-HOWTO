@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tasks [
+<!ELEMENT tasks (project*)>
+<!ELEMENT project (project_id,project_name,description,is_public,statuses,task*)>
+<!ELEMENT project_id (#PCDATA)>
+<!ELEMENT project_name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT is_public (#PCDATA)>
+<!ELEMENT statuses (status+)>
+<!ELEMENT status EMPTY>
+<!ELEMENT task (task_id,summary,detail,percent_complete,priority,hours,start_date,end_date,creator,status_id,dependencies,assignees,history_entries)>
+<!ELEMENT task_id (#PCDATA)>
+<!ELEMENT summary (#PCDATA)>
+<!ELEMENT detail (#PCDATA)>
+<!ELEMENT percent_complete (#PCDATA)>
+<!ELEMENT priority (#PCDATA)>
+<!ELEMENT hours (#PCDATA)>
+<!ELEMENT start_date (#PCDATA)>
+<!ELEMENT end_date (#PCDATA)>
+<!ELEMENT creator (#PCDATA)>
+<!ELEMENT status_id (#PCDATA)>
+<!ELEMENT dependencies (dependent_on*,dependent_of*)>
+<!ELEMENT dependent_on (#PCDATA)>
+<!ELEMENT dependent_of (#PCDATA)>
+<!ELEMENT assignees (assignee*)>
+<!ELEMENT assignee (#PCDATA)>
+<!ELEMENT history_entries (history_entry*)>
+<!ELEMENT history_entry (task_id, field_name, old_value, updator, date)>
+<!ELEMENT field_name (#PCDATA)>
+<!ELEMENT old_value (#PCDATA)>
+<!ELEMENT updator (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+
+<!ATTLIST status id CDATA #REQUIRED>
+<!ATTLIST status name CDATA #REQUIRED>
+]>
+<tasks>
+<project>
+<project_id>429</project_id>
+<project_name>asmutils</project_name>
+<description></description>
+<is_public>Yes</is_public>
+<statuses>
+<status id="1" name="Open" />
+<status id="2" name="Closed" />
+<status id="3" name="Deleted" />
+<status id="100" name="None" />
+</statuses>
+</project>
+<project>
+<project_id>430</project_id>
+<project_name>Assembly HOWTO</project_name>
+<description></description>
+<is_public>Yes</is_public>
+<statuses>
+<status id="1" name="Open" />
+<status id="2" name="Closed" />
+<status id="3" name="Deleted" />
+<status id="100" name="None" />
+</statuses>
+</project>
+</tasks>
