@@ -34,13 +34,13 @@
 <link xlink:href="http://asm.sourceforge.net/">Linux Assembly</link>
 </orgname>
 <address>
-<email>konst@asm.sourceforge.net</email>
+<email>konst@users.sourceforge.net</email>
 </address>
 </affiliation>
 </author>
 
 <releaseinfo>Version 0.9</releaseinfo>
-<pubdate role="Subversion">$Date:$</pubdate>
+<pubdate role="Subversion">$Date$</pubdate>
 
 <copyright>
 <year>2013</year>
@@ -661,7 +661,7 @@ according to the <link linkend="s-legal">license agreement</link>.
 
 <para>
 <literal>
-$Id:$
+$Id$
 </literal>
 </para>
 </appendix>
