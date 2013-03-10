@@ -9,6 +9,22 @@
 
 <author>
 <personname>
+<anchor xml:id="lnoor"/>
+<firstname>Leo</firstname>
+<surname>Noordergraaf</surname>
+</personname>
+<affiliation>
+<orgname class="informal">
+<link xlink:href="http://asm.sourceforge.net/">Linux Assembly</link>
+</orgname>
+<address>
+<email>lnoor@users.sourceforge.net</email>
+</address>
+</affiliation>
+</author>
+
+<author>
+<personname>
 <anchor xml:id="konst"/>
 <firstname>Konstantin</firstname>
 <surname>Boldyshev</surname>
@@ -18,13 +34,18 @@
 <link xlink:href="http://asm.sourceforge.net/">Linux Assembly</link>
 </orgname>
 <address>
-<email>konst@linuxassembly.org</email>
+<email>konst@asm.sourceforge.net</email>
 </address>
 </affiliation>
 </author>
 
 <releaseinfo>Version 0.9</releaseinfo>
-<pubdate role="cvs">$Date:$</pubdate>
+<pubdate role="Subversion">$Date:$</pubdate>
+
+<copyright>
+<year>2013</year>
+<holder>Leo Noordergraaf</holder>
+</copyright>
 
 <copyright>
 <year>1999, 2000, 2006</year>
@@ -263,24 +284,24 @@ So, our Linux program will look like:
 
 <para>
 <programlisting>
-section	.text
-    global _start			;must be declared for linker (ld)
+section     .text
+global      _start                              ;must be declared for linker (ld)
 
-_start:					;tell linker entry point
+_start:                                         ;tell linker entry point
 
-	mov	edx,len	;message length
-	mov	ecx,msg	;message to write
-	mov	ebx,1	;file descriptor (stdout)
-	mov	eax,4	;system call number (sys_write)
-	int	0x80	;call kernel
+    mov     edx,len                             ;message length
+    mov     ecx,msg                             ;message to write
+    mov     ebx,1                               ;file descriptor (stdout)
+    mov     eax,4                               ;system call number (sys_write)
+    int     0x80                                ;call kernel
 
-	mov	eax,1	;system call number (sys_exit)
-	int	0x80	;call kernel
+    mov     eax,1                               ;system call number (sys_exit)
+    int     0x80                                ;call kernel
 
-section	.data
+section     .data
 
-msg	db	'Hello, world!',0xa	;our dear string
-len	equ	$ - msg			;length of our dear string
+msg     db  'Hello, world!',0xa                 ;our dear string
+len     equ $ - msg                             ;length of our dear string
 </programlisting>
 </para>
 
@@ -356,37 +377,37 @@ Ok, I think the source will explain this better:
 
 <para>
 <programlisting>
-section	.text
-    global _start			;must be declared for linker (ld)
+section     .text
+global      _start                              ;must be declared for linker (ld)
 
-_syscall:		
-	int	0x80		;system call
-	ret
+_syscall:
+    int     0x80                                ;system call
+	  ret
 
-_start:				;tell linker entry point
+_start:                                         ;tell linker entry point
 
-	push	dword len	;message length
-	push	dword msg	;message to write
-	push	dword 1		;file descriptor (stdout)
-	mov	eax,0x4		;system call number (sys_write)
-	call	_syscall	;call kernel
+	  push    dword len                           ;message length
+	  push    dword msg                           ;message to write
+	  push    dword 1                             ;file descriptor (stdout)
+	  mov     eax,0x4                             ;system call number (sys_write)
+	  call    _syscall                            ;call kernel
 
-				;the alternate way to call kernel:
-				;push	eax
-				;call	7:0
+		;the alternate way to call kernel:
+		;push   eax
+    ;call   7:0
 
-	add	esp,12		;clean stack (3 arguments * 4)
+	  add     esp,12                              ;clean stack (3 arguments * 4)
 
-	push	dword 0		;exit code
-	mov	eax,0x1		;system call number (sys_exit)
-	call	_syscall	;call kernel
+	  push    dword 0                             ;exit code
+	  mov     eax,0x1                             ;system call number (sys_exit)
+	  call    _syscall                            ;call kernel
 
-				;we do not return from sys_exit,
-				;there's no need to clean stack
-section	.data
+		;we do not return from sys_exit,
+		;there's no need to clean stack
+section     .data
 
-msg	db	"Hello, world!",0xa	;our dear string
-len	equ	$ - msg			;length of our dear string
+msg     db  "Hello, world!",0xa                 ;our dear string
+len     equ $ - msg                             ;length of our dear string
 </programlisting>
 </para>
 
@@ -445,30 +466,30 @@ especially the <filename>os_beos.inc</filename> file.
 
 <para>
 <programlisting>
-section	.text
-    global _start			;must be declared for linker (ld)
+section     .text
+global      _start                              ;must be declared for linker (ld)
 
-_syscall:			;system call
-	int	0x25
-	ret
+_syscall:                                       ;system call
+    int     0x25
+	  ret
 
-_start:				;tell linker entry point
+_start:                                         ;tell linker entry point
 
-	push	dword len	;message length
-	push	dword msg	;message to write
-	push	dword 1		;file descriptor (stdout)
-	mov	eax,0x3		;system call number (sys_write)
-	call	_syscall	;call kernel
-	add	esp,12		;clean stack (3 * 4)
+	  push    dword len                           ;message length
+	  push    dword msg                           ;message to write
+  	push    dword 1                             ;file descriptor (stdout)
+	  mov     eax,0x3                             ;system call number (sys_write)
+	  call    _syscall                            ;call kernel
+	  add     esp,12                              ;clean stack (3 * 4)
 
-	push	dword 0		;exit code
-	mov	eax,0x3f	;system call number (sys_exit)
-	call	_syscall	;call kernel
-				;no need to clean stack
-section	.data
+	  push    dword 0                             ;exit code
+	  mov     eax,0x3f                            ;system call number (sys_exit)
+	  call    _syscall                            ;call kernel
+				                                        ;no need to clean stack
+section     .data
 
-msg	db	"Hello, world!",0xa	;our dear string
-len	equ	$ - msg			;length of our dear string
+msg     db  "Hello, world!",0xa                 ;our dear string
+len     equ $ - msg                             ;length of our dear string
 </programlisting>
 </para>
 </sect2>
@@ -481,8 +502,8 @@ To make an executable out of our <filename>hello.asm</filename> we must do the f
 
 <para>
 <screen>
-$ nasm -f elf hello.asm		# this will produce hello.o ELF object file
-$ ld -s -o hello hello.o	# this will produce hello executable
+$ nasm -f elf hello.asm                         # this will produce hello.o ELF object file
+$ ld -s -o hello hello.o                        # this will produce hello executable
 </screen>
 </para>
 
@@ -494,8 +515,8 @@ OpenBSD and NetBSD users should issue the following sequence instead
 
 <para>
 <screen>
-$ nasm -f aoutb hello.asm	# this will produce hello.o a.out object file
-$ ld -e _start -o hello hello.o	# this will produce hello executable
+$ nasm -f aoutb hello.asm                       # this will produce hello.o a.out object file
+$ ld -e _start -o hello hello.o                 # this will produce hello executable
 </screen>
 </para>
 </note>
@@ -534,6 +555,13 @@ Thank you for your interest!
 
 <para>
 <revhistory>
+<revision>
+<revnumber>0.9a</revnumber>
+<date>10 Mar 2013</date>
+<authorinitials>lnoor</authorinitials>
+<revremark>Updated links, converted to DocBook XML</revremark>
+</revision>
+
 <revision>
 <revnumber>0.9</revnumber>
 <date>11 Feb 2006</date>
@@ -623,7 +651,7 @@ I would like to thank:
 
 <para>
 This version of the document is endorsed by 
-<link linkend="konst">Konstantin Boldyshev</link>.
+<link linkend="lnoor">Leo Noordergraaf</link>.
 </para>
 
 <para>
