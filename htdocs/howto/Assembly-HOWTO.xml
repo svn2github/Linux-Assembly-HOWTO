@@ -4,7 +4,7 @@
                    "file:///usr/share/xml/docbook/schema/dtd/5.0/docbook.dtd"
                    [<!ENTITY version "0.7">]>
 
-<!-- $id:$ -->
+<!-- $Id$ -->
 
 <book>
 <?dbhtml filename="Assembly-HOWTO.html"?>

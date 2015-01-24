@@ -4,5 +4,5 @@ ARC=la
 
 cd $DIR
 rm -f $ARC.*
-tar cf $ARC.tar --exclude private *
+tar cf $ARC.tar --exclude private --exclude .svn *
 bzip2 -9 $ARC.tar
