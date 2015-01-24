@@ -1,12 +1,12 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 5. Calling conventions</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="prev" href="meta.html" title="Metaprogramming"><link rel="next" href="dos.html" title="DOS and Windows"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Calling conventions</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="meta.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="dos.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter 5. Calling conventions"><div class="titlepage"><div><div><h2 class="title"><a name="s-call"></a>Chapter 5. Calling conventions</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="conventions.html#idp354592">Linux</a></span></dt><dd><dl><dt><span class="section"><a href="conventions.html#idp355840">Linking to GCC</a></span></dt><dt><span class="section"><a href="conventions.html#idp366128">ELF vs a.out problems</a></span></dt><dt><span class="section"><a href="conventions.html#idp370688">Direct Linux syscalls</a></span></dt><dt><span class="section"><a href="conventions.html#idp425056">Hardware I/O under Linux</a></span></dt><dt><span class="section"><a href="conventions.html#idp435840">Accessing 16-bit drivers from Linux/i386</a></span></dt></dl></dd><dt><span class="section"><a href="dos.html">DOS and Windows</a></span></dt><dt><span class="section"><a href="ownos.html">Your own OS</a></span></dt></dl></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 5. Calling conventions</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="prev" href="meta.html" title="Metaprogramming"><link rel="next" href="dos.html" title="DOS and Windows"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Calling conventions</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="meta.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="dos.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter 5. Calling conventions"><div class="titlepage"><div><div><h2 class="title"><a name="s-call"></a>Chapter 5. Calling conventions</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="conventions.html#idp333856">Linux</a></span></dt><dd><dl><dt><span class="section"><a href="conventions.html#idp335104">Linking to GCC</a></span></dt><dt><span class="section"><a href="conventions.html#idp345424">ELF vs a.out problems</a></span></dt><dt><span class="section"><a href="conventions.html#idp349984">Direct Linux syscalls</a></span></dt><dt><span class="section"><a href="conventions.html#idp404400">Hardware I/O under Linux</a></span></dt><dt><span class="section"><a href="conventions.html#idp415184">Accessing 16-bit drivers from Linux/i386</a></span></dt></dl></dd><dt><span class="section"><a href="dos.html">DOS and Windows</a></span></dt><dt><span class="section"><a href="ownos.html">Your own OS</a></span></dt></dl></div>
 
 
 
-<div class="section" title="Linux"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp354592"></a>Linux</h2></div></div></div>
+<div class="section" title="Linux"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp333856"></a>Linux</h2></div></div></div>
 
 
 
-<div class="section" title="Linking to GCC"><div class="titlepage"><div><div><h3 class="title"><a name="idp355840"></a>Linking to GCC</h3></div></div></div>
+<div class="section" title="Linking to GCC"><div class="titlepage"><div><div><h3 class="title"><a name="idp335104"></a>Linking to GCC</h3></div></div></div>
 
 
 <p>
@@ -45,7 +45,7 @@ pages. See also how Linux defines its <code class="literal">asmlinkage</code> ma
 </p>
 </div>
 
-<div class="section" title="ELF vs a.out problems"><div class="titlepage"><div><div><h3 class="title"><a name="idp366128"></a>ELF vs a.out problems</h3></div></div></div>
+<div class="section" title="ELF vs a.out problems"><div class="titlepage"><div><div><h3 class="title"><a name="idp345424"></a>ELF vs a.out problems</h3></div></div></div>
 
 
 <p>
@@ -82,7 +82,7 @@ More generally, it will do lots of file format conversions.
 </p>
 </div>
 
-<div class="section" title="Direct Linux syscalls"><div class="titlepage"><div><div><h3 class="title"><a name="idp370688"></a>Direct Linux syscalls</h3></div></div></div>
+<div class="section" title="Direct Linux syscalls"><div class="titlepage"><div><div><h3 class="title"><a name="idp349984"></a>Direct Linux syscalls</h3></div></div></div>
 
 
 <p>
@@ -307,7 +307,7 @@ the Linux kernel (<code class="filename">exec.c</code> and
 </p>
 </div>
 
-<div class="section" title="Hardware I/O under Linux"><div class="titlepage"><div><div><h3 class="title"><a name="idp425056"></a>Hardware I/O under Linux</h3></div></div></div>
+<div class="section" title="Hardware I/O under Linux"><div class="titlepage"><div><div><h3 class="title"><a name="idp404400"></a>Hardware I/O under Linux</h3></div></div></div>
 
 
 <p>
@@ -340,7 +340,7 @@ assembly source files.
 </p>
 </div>
 
-<div class="section" title="Accessing 16-bit drivers from Linux/i386"><div class="titlepage"><div><div><h3 class="title"><a name="idp435840"></a>Accessing 16-bit drivers from Linux/i386</h3></div></div></div>
+<div class="section" title="Accessing 16-bit drivers from Linux/i386"><div class="titlepage"><div><div><h3 class="title"><a name="idp415184"></a>Accessing 16-bit drivers from Linux/i386</h3></div></div></div>
 
 
 <p>

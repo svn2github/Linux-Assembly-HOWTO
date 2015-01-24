@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 2. Do you need assembly?</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="prev" href="introduction.html" title="Chapter 1. Introduction"><link rel="next" href="howtonot.html" title="How to NOT use Assembly"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. Do you need assembly?</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="introduction.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="howtonot.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter 2. Do you need assembly?"><div class="titlepage"><div><div><h2 class="title"><a name="s-doyou"></a>Chapter 2. Do you need assembly?</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="doyouneed.html#idp80496">Pros and Cons</a></span></dt><dd><dl><dt><span class="section"><a href="doyouneed.html#idp83536">The advantages of Assembly</a></span></dt><dt><span class="section"><a href="doyouneed.html#idp94864">The disadvantages of Assembly</a></span></dt><dt><span class="section"><a href="doyouneed.html#idp110032">Assessment</a></span></dt></dl></dd><dt><span class="section"><a href="howtonot.html">How to NOT use Assembly</a></span></dt><dd><dl><dt><span class="section"><a href="howtonot.html#idp120080">General procedure to achieve efficient code</a></span></dt><dt><span class="section"><a href="howtonot.html#idp123568">Languages with optimizing compilers</a></span></dt><dt><span class="section"><a href="howtonot.html#idp125808">General procedure to speed your code up</a></span></dt><dt><span class="section"><a href="howtonot.html#idp134640">Inspecting compiler-generated code</a></span></dt></dl></dd><dt><span class="section"><a href="landa.html">Linux and assembly</a></span></dt></dl></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Chapter 2. Do you need assembly?</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><meta name="keywords" content="assembly, assembler, asm, inline, 32-bit, IA-32, i386, x86, nasm, gas, as, as86, yasm, fasm, shasm, osimpa, OS, Linux, Unix, kernel, system, libc, glibc, system call, interrupt, small, fast, embedded, hardware, port, macroprocessor, metaprogramming, preprocessor"><link rel="home" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="up" href="Assembly-HOWTO.html" title="Linux Assembly HOWTO"><link rel="prev" href="introduction.html" title="Chapter 1. Introduction"><link rel="next" href="howtonot.html" title="How to NOT use Assembly"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. Do you need assembly?</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="introduction.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="howtonot.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter 2. Do you need assembly?"><div class="titlepage"><div><div><h2 class="title"><a name="s-doyou"></a>Chapter 2. Do you need assembly?</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="doyouneed.html#idp79232">Pros and Cons</a></span></dt><dd><dl><dt><span class="section"><a href="doyouneed.html#idp79872">The advantages of Assembly</a></span></dt><dt><span class="section"><a href="doyouneed.html#idp89552">The disadvantages of Assembly</a></span></dt><dt><span class="section"><a href="doyouneed.html#idp102784">Assessment</a></span></dt></dl></dd><dt><span class="section"><a href="howtonot.html">How to NOT use Assembly</a></span></dt><dd><dl><dt><span class="section"><a href="howtonot.html#idp111712">General procedure to achieve efficient code</a></span></dt><dt><span class="section"><a href="howtonot.html#idp114672">Languages with optimizing compilers</a></span></dt><dt><span class="section"><a href="howtonot.html#idp116912">General procedure to speed your code up</a></span></dt><dt><span class="section"><a href="howtonot.html#idp124176">Inspecting compiler-generated code</a></span></dt></dl></dd><dt><span class="section"><a href="landa.html">Linux and assembly</a></span></dt></dl></div>
 
 
 
@@ -7,10 +7,10 @@ Well, I wouldn't want to interfere with what you're doing, but here is some
 advice from the hard-earned experience.
 </p>
 
-<div class="section" title="Pros and Cons"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp80496"></a>Pros and Cons</h2></div></div></div>
+<div class="section" title="Pros and Cons"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp79232"></a>Pros and Cons</h2></div></div></div>
 
 
-<div class="section" title="The advantages of Assembly"><div class="titlepage"><div><div><h3 class="title"><a name="idp83536"></a>The advantages of Assembly</h3></div></div></div>
+<div class="section" title="The advantages of Assembly"><div class="titlepage"><div><div><h3 class="title"><a name="idp79872"></a>The advantages of Assembly</h3></div></div></div>
 
 <p>
 Assembly can express very low-level things:
@@ -65,7 +65,7 @@ i.e. you can be in complete control of your code
 
 </div>
 
-<div class="section" title="The disadvantages of Assembly"><div class="titlepage"><div><div><h3 class="title"><a name="idp94864"></a>The disadvantages of Assembly</h3></div></div></div>
+<div class="section" title="The disadvantages of Assembly"><div class="titlepage"><div><div><h3 class="title"><a name="idp89552"></a>The disadvantages of Assembly</h3></div></div></div>
 
 <p>
 Assembly is a very low-level language (the lowest above hand-coding the binary
@@ -146,7 +146,7 @@ and module boundaries.
 </p>
 </div>
 
-<div class="section" title="Assessment"><div class="titlepage"><div><div><h3 class="title"><a name="idp110032"></a>Assessment</h3></div></div></div>
+<div class="section" title="Assessment"><div class="titlepage"><div><div><h3 class="title"><a name="idp102784"></a>Assessment</h3></div></div></div>
 
 <p>
 All in all, you might find that though using assembly is sometimes needed, and

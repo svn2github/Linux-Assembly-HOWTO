@@ -2411,7 +2411,8 @@ For <application>nasm</application> example:
 
 <para>
 <screen>
-$ nasm -f elf hello.asm
+$ nasm -f elf hello.asm    # 32 bit target
+$ nasm -f elf64 hello.asm  # 64 bit target
 </screen>
 </para>
 
